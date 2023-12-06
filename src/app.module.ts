@@ -4,6 +4,8 @@ import { AppService } from './app.service';
 import { PracticeModuleModule } from './practice-module/practice-module.module';
 import { TasksModule } from './tasks/tasks.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { User } from './users/Entities/User';
+import { UsersModule } from './users/users.module';
 
 @Module({
   imports: [
@@ -11,14 +13,15 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       type: 'mysql',
       host: 'localhost',
       port: 3306,
-      username: 'your_mysql_username',
-      password: 'your_mysql_password',
-      database: 'your_mysql_database_name',
-      entities: [__dirname + '/**/*.entity{.ts,.js}'],
+      username: 'anoych',
+      password: 'anoych@1',
+      database: 'practiceDb',
+      entities: [User],
       synchronize: true,
     }),
     PracticeModuleModule,
     TasksModule,
+    UsersModule
   ],
   controllers: [AppController],
   providers: [AppService],
